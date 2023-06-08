@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/paralax-hole-project/static/css/main.073c9b0a.css",
-    "main.js": "/paralax-hole-project/static/js/main.6527025c.js",
+    "main.css": "/paralax-hole-project/static/css/main.2115871b.css",
+    "main.js": "/paralax-hole-project/static/js/main.ae0aefdc.js",
     "static/js/787.19aafa0a.chunk.js": "/paralax-hole-project/static/js/787.19aafa0a.chunk.js",
-    "static/media/logo.svg": "/paralax-hole-project/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/hole.png": "/paralax-hole-project/static/media/hole.49b76c54d9ffa6d0c840.png",
+    "static/media/inhole.png": "/paralax-hole-project/static/media/inhole.a71be4da1f237a715c4c.png",
     "index.html": "/paralax-hole-project/index.html",
-    "main.073c9b0a.css.map": "/paralax-hole-project/static/css/main.073c9b0a.css.map",
-    "main.6527025c.js.map": "/paralax-hole-project/static/js/main.6527025c.js.map",
+    "main.2115871b.css.map": "/paralax-hole-project/static/css/main.2115871b.css.map",
+    "main.ae0aefdc.js.map": "/paralax-hole-project/static/js/main.ae0aefdc.js.map",
     "787.19aafa0a.chunk.js.map": "/paralax-hole-project/static/js/787.19aafa0a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.6527025c.js"
+    "static/css/main.2115871b.css",
+    "static/js/main.ae0aefdc.js"
   ]
 }
