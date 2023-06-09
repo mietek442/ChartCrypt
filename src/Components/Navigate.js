@@ -32,7 +32,7 @@ class Navigate extends React.Component {
     return (
       <div className="navigate">
         <div className="paralax-hole">
-          <img src={hole} className="hole" alt="dziura" />
+          to jest gówno
           <img src={inhole} className="inhole" alt="srodek dziury" />
         </div>
       </div>
