@@ -2,11 +2,22 @@ import React from "react";
 import "../Components/Navigate.css";
 import hole from "../pictures/hole.png";
 import inhole from "../pictures/inhole.png";
+const ElementwithParams = (params) => {
+  console.log(params.element.id);
+  return (
+    <div>
+      to jest id: {params.element.id} to jest nazwisko:
+      {params.element.lastname}
+
+      
+    </div>
+  );
+};
 
 class Navigate extends React.Component {
   state = {
     elements: [
-      { id: "papiez", name: "jan", lastname: "kowalski" },
+      { id: "andzrzej", name: "jan", lastname: "kowalski" },
       { id: "papiez", name: "kowalan", lastname: "kowalski" },
     ],
   };
@@ -20,17 +31,16 @@ class Navigate extends React.Component {
     console.log(this.refundElements);
     console.log(this.state.elements);
     var opc = this.state.elements.map((e) => {
-      return (
-        <div>
-          <div key={e.id}>{e.id}</div>
-          <div key={e.name}>{e.name}</div>
-        </div>
-      );
+      return e;
     });
-    console.log(opc);
-
+    console.log("opc", opc);
+    const elementswithparamsevrythhing = opc.map((e) => {
+      return <ElementwithParams element={e} key={e} />;
+    });
+    console.log(elementswithparamsevrythhing);
     return (
       <div className="navigate">
+        {elementswithparamsevrythhing}
         <div className="paralax-hole">
           jan paweł
           <img src={inhole} className="inhole" alt="srodek dziury" />
