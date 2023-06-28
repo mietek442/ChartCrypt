@@ -2,14 +2,13 @@ import React from "react";
 import "../Components/Navigate.css";
 import hole from "../pictures/hole.png";
 import inhole from "../pictures/inhole.png";
+import Chart from "./Chart";
 const ElementwithParams = (params) => {
   console.log(params.element.id);
   return (
     <div>
       to jest id: {params.element.id} to jest nazwisko:
       {params.element.lastname}
-
-      
     </div>
   );
 };
@@ -44,6 +43,7 @@ class Navigate extends React.Component {
         <div className="paralax-hole">
           jan paweł
           <img src={inhole} className="inhole" alt="srodek dziury" />
+          <Chart />
         </div>
       </div>
     );
