@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/paralax-hole-project/static/css/main.2115871b.css",
-    "main.js": "/paralax-hole-project/static/js/main.56ed116c.js",
+    "main.js": "/paralax-hole-project/static/js/main.b3c199f2.js",
     "static/js/787.19aafa0a.chunk.js": "/paralax-hole-project/static/js/787.19aafa0a.chunk.js",
     "static/media/hole.png": "/paralax-hole-project/static/media/hole.49b76c54d9ffa6d0c840.png",
     "static/media/inhole.png": "/paralax-hole-project/static/media/inhole.a71be4da1f237a715c4c.png",
     "index.html": "/paralax-hole-project/index.html",
     "main.2115871b.css.map": "/paralax-hole-project/static/css/main.2115871b.css.map",
-    "main.56ed116c.js.map": "/paralax-hole-project/static/js/main.56ed116c.js.map",
+    "main.b3c199f2.js.map": "/paralax-hole-project/static/js/main.b3c199f2.js.map",
     "787.19aafa0a.chunk.js.map": "/paralax-hole-project/static/js/787.19aafa0a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2115871b.css",
-    "static/js/main.56ed116c.js"
+    "static/js/main.b3c199f2.js"
   ]
 }
