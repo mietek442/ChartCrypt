@@ -4,6 +4,8 @@ import "./Chart.css";
 import BarChart from "./BarChart";
 
 function Chart() {
+  // sprawdzanie czy jest telefonem Z NETA
+
   var datetotest = 1687017643170;
   let date = new Date(datetotest);
   // console.log(date.toLocaleString());
@@ -93,7 +95,12 @@ function Chart() {
         },
         ticks: {
           callback: (value, index, values) => {
-            if (index === 0 || index === times.length - 1) return times[index];
+            if (
+              (index === 0 || index === times.length - 1) &&
+              window.innerWidth >= 768
+            ) {
+              return times[index];
+            }
           },
         },
       },
@@ -112,31 +119,6 @@ function Chart() {
     },
   };
 
-  // function getRectArea() {
-  //   var xhttp = new XMLHttpRequest();
-
-  //   xhttp.open(
-  //     "get",
-  //     "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=USD&days=2&interval=5-minutely",
-  //     true
-  //   );
-  //   if (xhttp.readyState === 4 && xhttp.status === 200) {
-  //     console.log("ok, response :", xhttp.response);
-  //   }
-  //   var zm = 1;
-  //   setTimeout(() => {
-  //     console.log(xhttp.responseURL);
-  //     zm = 2;
-  //   }, 200);
-  //   xhttp.send();
-  //   return xhttp.responseURL;
-  // }
-
-  // setTimeout(() => {
-  //   console.log(getRectArea());
-  // }, 300);
-  // console.log(lastvalue);
-
   return (
     <div className="App">
       {/* <div
@@ -144,7 +126,7 @@ function Chart() {
         style={{ position: "absolute", top: 100, right: 270, fontSize: 50 }}>
         last price : {lastvalue}
       </div> */}
-      <div style={{ width: "97%", height: "80vw", maxHeight: "80vh" }}>
+      <div className="box-bar-chart">
         <BarChart chartData={datas} options={options} />
       </div>
     </div>
