@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/paralax-hole-project/static/css/main.6be8adb8.css",
-    "main.js": "/paralax-hole-project/static/js/main.9b25f33f.js",
-    "static/js/787.19aafa0a.chunk.js": "/paralax-hole-project/static/js/787.19aafa0a.chunk.js",
-    "static/media/Pacifico-Regular.ttf": "/paralax-hole-project/static/media/Pacifico-Regular.c0d735fc04154e03a691.ttf",
-    "static/media/LogoChartCryptoV1-black.png": "/paralax-hole-project/static/media/LogoChartCryptoV1-black.7b3ca477e9a86d83d7b3.png",
-    "index.html": "/paralax-hole-project/index.html",
-    "main.6be8adb8.css.map": "/paralax-hole-project/static/css/main.6be8adb8.css.map",
-    "main.9b25f33f.js.map": "/paralax-hole-project/static/js/main.9b25f33f.js.map",
-    "787.19aafa0a.chunk.js.map": "/paralax-hole-project/static/js/787.19aafa0a.chunk.js.map"
+    "main.css": "/ChartCrypt/static/css/main.e45d8578.css",
+    "main.js": "/ChartCrypt/static/js/main.778c263f.js",
+    "static/js/787.19aafa0a.chunk.js": "/ChartCrypt/static/js/787.19aafa0a.chunk.js",
+    "static/media/Pacifico-Regular.ttf": "/ChartCrypt/static/media/Pacifico-Regular.c0d735fc04154e03a691.ttf",
+    "static/media/LogoChartCryptoV1-black.png": "/ChartCrypt/static/media/LogoChartCryptoV1-black.7b3ca477e9a86d83d7b3.png",
+    "index.html": "/ChartCrypt/index.html",
+    "main.e45d8578.css.map": "/ChartCrypt/static/css/main.e45d8578.css.map",
+    "main.778c263f.js.map": "/ChartCrypt/static/js/main.778c263f.js.map",
+    "787.19aafa0a.chunk.js.map": "/ChartCrypt/static/js/787.19aafa0a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6be8adb8.css",
-    "static/js/main.9b25f33f.js"
+    "static/css/main.e45d8578.css",
+    "static/js/main.778c263f.js"
   ]
 }
