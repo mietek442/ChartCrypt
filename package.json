@@ -1,7 +1,7 @@
 {
   "name": "paralax-webside-project",
   "version": "0.1.0",
-  "homepage": "https://mietek442.github.io/paralax-hole-project",
+  "homepage": "https://mietek442.github.io/ChartCrypt",
   "private": true,
   "dependencies": {
     "@fontsource/pacifico": "^5.0.5",

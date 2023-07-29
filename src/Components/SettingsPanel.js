@@ -55,6 +55,8 @@ const optionsfirstoption = [
   { value: "bitcoin", label: "Bitcoin" },
   { value: "ethereum", label: "Ethereum" },
   { value: "dogecoin", label: "DogeCoin" },
+  { value: "monkeys", label: "Monkeys" },
+  { value: "tether", label: "Tether" },
 ];
 // second option
 const optionDaysMany = tabDays.map((e) => {
