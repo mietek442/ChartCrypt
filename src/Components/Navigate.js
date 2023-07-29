@@ -46,8 +46,8 @@ function Navigate({ chooseMessage, closeStatus }) {
             }}
           />
           <div className="sunpoint">
-            <div className="circlesun">
-              <div className="shadow"></div>
+            <div className="circlesun" style={{ boxShadow: "none !important" }}>
+              <div className="shadows"></div>
             </div>
             <div className="liness"></div>
             <div className="liness"></div>

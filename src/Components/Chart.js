@@ -3,18 +3,98 @@ import "./Chart.css";
 
 import BarChart from "./BarChart";
 
-function Chart() {
-  // sprawdzanie czy jest telefonem Z NETA
+function Chart({
+  FirstSettingsParametrs,
+  SecondSettingsParametrs,
+  ThirdSettingsParametrs,
+  FourthSettingsParametrs,
+  FifthSettingsParametrs,
+}) {
+  // value ratio
+  const [currency, setcurrency] = useState({});
+  useEffect(() => {
+    const Checkcurrency = async () => {
+      await fetch(
+        "https://api.nbp.pl/api/exchangerates/rates/a/chf/?format=json"
+      )
+        .then((response) => {
+          if (response.ok) {
+            response.json().then((json) => {
+              setcurrency(json);
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    Checkcurrency();
+  });
+  if (currency?.rates) {
+    console.log(currency?.rates[0].mid);
+    var PolishCurrency = currency?.rates[0].mid;
+  }
+  const [pirceMultiState, setpirceMultiState] = useState(1);
 
-  var datetotest = 1687017643170;
-  let date = new Date(datetotest);
-  // console.log(date.toLocaleString());
+  const [nameCurrencyState, setnameCurrencyState] = useState("USD");
+  const [currencyState, setcurrencyState] = useState([0, "USD"]);
+  if (FifthSettingsParametrs && FifthSettingsParametrs != currencyState) {
+    if (FifthSettingsParametrs[1] == "EUR") {
+      setnameCurrencyState("EUR");
+      setcurrencyState(FifthSettingsParametrs);
+      setpirceMultiState(1);
+    } else if (FifthSettingsParametrs[0] == 3) {
+      setnameCurrencyState("PLN");
+      setcurrencyState(FifthSettingsParametrs);
+      console.log(PolishCurrency);
+      setpirceMultiState(PolishCurrency);
+    } else {
+      setcurrencyState(FifthSettingsParametrs);
+
+      setnameCurrencyState("USD");
+      setpirceMultiState(1);
+    }
+  }
+  console.log(pirceMultiState);
+
+  const [crypt, setCrypto] = useState("bitcoin");
+
+  // console.log(crypt);
+  if (crypt != FirstSettingsParametrs && FirstSettingsParametrs) {
+    setCrypto(FirstSettingsParametrs);
+  }
+  const [days, setdays] = useState(7);
+
+  // console.log(days);
+  if (days != SecondSettingsParametrs && SecondSettingsParametrs) {
+    setdays(SecondSettingsParametrs);
+  }
+
+  const [interval, setinterval] = useState("5-minutely");
+
+  // console.log(interval);
+  if (interval != ThirdSettingsParametrs && ThirdSettingsParametrs) {
+    setinterval(ThirdSettingsParametrs);
+  }
+  const [scale, setscale] = useState([1.01, 365]);
+
+  if (scale != FourthSettingsParametrs && FourthSettingsParametrs) {
+    setscale(FourthSettingsParametrs);
+  }
 
   const [chart, setChart] = useState({});
+
   useEffect(() => {
     const fetchCoins = async () => {
       await fetch(
-        "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=USD&days=1&interval=5-minutely"
+        "https://api.coingecko.com/api/v3/coins/" +
+          crypt +
+          "/market_chart?vs_currency=" +
+          currencyState[1] +
+          "&days=" +
+          days +
+          "&interval=" +
+          interval
       )
         .then((response) => {
           if (response.ok) {
@@ -30,14 +110,83 @@ function Chart() {
     };
     fetchCoins();
   });
+  // console.log(chart);
+  // chart 2
 
-  // console.log(chart.prices);
-  // var adadd = chart?.prices?.map((x) => x[0]);
+  const [chart2, setChart2] = useState({});
+  var daystochart2 = days;
+  if (FourthSettingsParametrs) {
+    if (parseFloat(FourthSettingsParametrs[1]) > 10) {
+      daystochart2 = parseFloat(FourthSettingsParametrs[1]);
+    } else {
+      daystochart2 = days;
+    }
+  }
+
+  useEffect(() => {
+    const fetchCoins2 = async () => {
+      await fetch(
+        "https://api.coingecko.com/api/v3/coins/" +
+          crypt +
+          "/market_chart?vs_currency=" +
+          currencyState[1] +
+          "&days=" +
+          daystochart2 +
+          "&interval=" +
+          interval
+      )
+        .then((response) => {
+          if (response.ok) {
+            response.json().then((json) => {
+              // console.log(json);
+              setChart2(json);
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    fetchCoins2();
+  });
+  // console.log(chart2);
+  var price2 = chart2?.prices?.map(
+    (x) => parseFloat(x[1]).toFixed(2) * pirceMultiState
+  );
+  if (price2) {
+    var minimum2 = price2[0];
+  }
+
+  price2?.forEach((e) => {
+    if (minimum2 > e) {
+      minimum2 = e;
+    }
+  });
+  var maximum2 = 0;
+  var a;
+  const arr = [1, 2, 3];
+  const [maxstate, setmaxstate] = useState({});
+
+  useEffect(() => {
+    const checkamaxvalue = async () => {
+      if (price2) {
+        setmaxstate(Math?.max(...price2));
+      }
+    };
+    checkamaxvalue();
+  });
+
+  // console.log(minimum2, maxstate);
+
+  // console.log(maximum2);
+
+  var adadd = chart?.prices?.map((x) => x[0]);
   // console.log(adadd);
 
   var times = chart?.prices?.map((x) => new Date(x[0]).toLocaleString());
   // console.log(times);
-  var price = chart?.prices?.map((x) => x[1]);
+  var price = chart?.prices?.map((x) => x[1] * pirceMultiState);
+  console.log(currencyState);
   var minvalueratio = 0;
   // var minvalueratio = price[0]?.toFixed(2);
   if (price) {
@@ -54,24 +203,30 @@ function Chart() {
       maxvalueratio = ee;
     }
   });
-  // console.log(maxvalueratio);
 
-  if (price?.length > 0) {
-    var lastvalue = price[price?.length - 1];
-  }
-  if (lastvalue?.length > 0) {
-    var valuetoscale = lastvalue.tofixed(2);
+  /// minimum2   maxstate              minvalueratio        maxvalueratio
+  var maxscaleparametrs = 0;
+  var minimumscaleparametrs = 0;
+  if (maxstate) {
+    maxscaleparametrs = parseFloat(maxstate)?.toFixed(2) * scale[0];
   } else {
-    var valuetoscale = 1800;
+    maxscaleparametrs = maxvalueratio?.toFixed(2) * scale[0];
+  }
+  if (minimum2) {
+    minimumscaleparametrs = parseFloat(minimum2)?.toFixed(2) * (2 - scale[0]);
+  } else {
+    minimumscaleparametrs = minvalueratio?.toFixed(2) * (2 - scale[0]);
   }
 
-  // console.log(typek);
-
+  var minvalueratioData = minvalueratio?.toFixed(2) * (2 - scale[0]);
+  if (scale && scale[1] > 29) {
+    minvalueratioData = minvalueratio?.toFixed(2) * (2 - scale[0]);
+  }
   var datas = {
     labels: times,
     datasets: [
       {
-        label: " cena etherium usd ",
+        label: "cena " + crypt + " w " + nameCurrencyState,
         data: price,
         backgroundColor: ["rgba(49, 164, 235)"],
         borderColor: ["rgba(49, 164, 235)"],
@@ -108,8 +263,8 @@ function Chart() {
         title: {
           display: true,
         },
-        min: minvalueratio?.toFixed(2) * 0.99,
-        max: maxvalueratio?.toFixed(2) * 1.01,
+        min: minimumscaleparametrs,
+        max: maxscaleparametrs,
       },
     },
     legend: {
