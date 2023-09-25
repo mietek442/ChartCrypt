@@ -63,7 +63,7 @@ function Chart({
   if (crypt != FirstSettingsParametrs && FirstSettingsParametrs) {
     setCrypto(FirstSettingsParametrs);
   }
-  const [days, setdays] = useState(7);
+  const [days, setdays] = useState(1);
 
   // console.log(days);
   if (days != SecondSettingsParametrs && SecondSettingsParametrs) {
@@ -93,8 +93,9 @@ function Chart({
           currencyState[1] +
           "&days=" +
           days +
-          "&interval=" +
-          interval
+          "&"
+        // interval=" +
+        // interval
       )
         .then((response) => {
           if (response.ok) {
@@ -109,7 +110,7 @@ function Chart({
         });
     };
     fetchCoins();
-  });
+  }, [datas, FirstSettingsParametrs]);
   // console.log(chart);
   // chart 2
 
@@ -148,7 +149,7 @@ function Chart({
         });
     };
     fetchCoins2();
-  });
+  }, [datas]);
   // console.log(chart2);
   var price2 = chart2?.prices?.map(
     (x) => parseFloat(x[1]).toFixed(2) * pirceMultiState
